@@ -2,7 +2,7 @@ require_relative "../config/environment.rb"
 require 'active_support/inflector'
 
 class InteractiveRecord
-      attr_accessor :id, :name, :grade
+      ATTRIBU
   
   def self.table_name
     self.to_s.downcase.pluralize
@@ -20,7 +20,6 @@ class InteractiveRecord
   
   def initialize(attributes = {})
     attributes.each {|key, value| self.send("#{key}=", value)}
-    
   end
   
   
