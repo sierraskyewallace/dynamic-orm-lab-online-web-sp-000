@@ -25,7 +25,7 @@ class InteractiveRecord
   end
   
   def initialize(attributes = {})
-    attributes.each {|key, value| self.send("#{key}=", value)}
+    attributes.each {|attribute_name, value| self.send("#{attribute_name}=", value)}
   end
   
   
