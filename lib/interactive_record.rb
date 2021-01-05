@@ -2,7 +2,13 @@ require_relative "../config/environment.rb"
 require 'active_support/inflector'
 
 class InteractiveRecord
-      attr_accessor :id, :name, :grade
+      ATTRIBUTES = { 
+        :id => "INTEGER primary key",
+        :name => "TEXT",
+        :grade => "INTEGER"
+      }
+        ATTRIBUTES.keys.each do |attribute_name|
+          attr_accessor attribute_name
   
   def self.table_name
     self.to_s.downcase.pluralize
@@ -19,8 +25,7 @@ class InteractiveRecord
   end
   
   def initialize(attributes = {})
-    attributes.each {|key, value| self.send("#{key}=", value)}
-    
+    attributes.each {|attribute_name, value| self.send("#{attribute_name}=", value)}
   end
   
   
@@ -66,4 +71,5 @@ class InteractiveRecord
     SQL
     DB[:conn].execute(sql, attribute_hash.values.first)
     end
+  end
 end
