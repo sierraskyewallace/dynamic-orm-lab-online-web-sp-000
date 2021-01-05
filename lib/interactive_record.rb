@@ -3,7 +3,11 @@ require 'active_support/inflector'
 
 class InteractiveRecord
       ATTRIBUTES = { 
-        :ID => "iNTEGER"
+        :id => "INTEGER primary key",
+        :name => "TEXT",
+        :grade => "INTEGER"
+      }
+        
   
   def self.table_name
     self.to_s.downcase.pluralize
