@@ -71,4 +71,5 @@ class InteractiveRecord
     SQL
     DB[:conn].execute(sql, attribute_hash.values.first)
     end
+  end
 end
