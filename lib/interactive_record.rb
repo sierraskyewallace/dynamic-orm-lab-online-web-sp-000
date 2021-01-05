@@ -7,7 +7,8 @@ class InteractiveRecord
         :name => "TEXT",
         :grade => "INTEGER"
       }
-        ATTRIBUTES.keys.each do |attribute_name
+        ATTRIBUTES.keys.each do |attribute_name|
+          attr_accessor attribute_name
   
   def self.table_name
     self.to_s.downcase.pluralize
